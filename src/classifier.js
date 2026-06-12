@@ -26,7 +26,11 @@ Reglas:
 - Se estricto. "Vapor" en un nombre de calle o "caldera" como apellido NO es relevante.
 - Hospitales con calderas, lavanderia o quimicos = prioridad alta (cliente objetivo principal).
 - Mantenimiento o repuestos de equipos que Sigmart representa = relevante.
-- Suministros genericos sin relacion termica/lavanderia/quimica = NO relevante.
+- Servicios de lavado de ropa, alquiler de ropa hospitalaria o lavanderia domestica = NO relevante salvo que pidan equipo industrial.
+- Quimicos genericos, reactivos de laboratorio, medicamentos, limpieza general, desinfectantes comunes o insumos de aseo = NO relevante.
+- Tratamiento de agua solo es relevante si se relaciona con calderas, sistemas termicos, torres, equipos industriales u operacion hospitalaria/industrial.
+- Fumigacion/control de plagas/control de vectores si es servicio institucional recurrente o equipo relacionado = relevante.
+- Suministros genericos sin relacion termica/lavanderia industrial/quimicos de caldera/plagas = NO relevante.
 
 Responde UNICAMENTE con JSON valido, sin markdown ni texto adicional:
 {"relevante": true|false, "division": "CALDERAS"|"LAVANDERIA"|"QUIMICOS_PLAGAS"|null, "prioridad": "alta"|"media"|"baja"|null, "razon": "una frase corta"}`;
