@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node src/server.js",
     "once": "node src/run-once.js",
-    "cron": "FORCE_RUN_ONCE=true node src/run-once.js"
+    "cron": "node src/run-once.js --force"
   },
   "engines": {
     "node": ">=20"

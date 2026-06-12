@@ -1,7 +1,9 @@
 // Runs the COMPRASAL agent once, then exits.
 // Use this for Railway cron jobs.
 
-if (process.env.PORT && process.env.FORCE_RUN_ONCE !== 'true') {
+const forceRun = process.env.FORCE_RUN_ONCE === 'true' || process.argv.includes('--force');
+
+if (process.env.PORT && !forceRun) {
   require('./server');
   return;
 }

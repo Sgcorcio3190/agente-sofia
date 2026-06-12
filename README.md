@@ -1,4 +1,4 @@
-# Agente de Licitaciones COMPRASAL — Sigmart Group
+# Agente de Licitaciones COMPRASAL - Sigmart Group
 
 Monitorea el API publico de COMPRASAL, filtra con Claude las licitaciones
 relevantes para las divisiones de Sigmart (calderas, lavanderia, quimicos/plagas),
@@ -27,19 +27,22 @@ COMPRASAL API publico
 
 1. `npm install`
 2. Ejecutar `schema.sql` en el SQL Editor de Supabase (proyecto industrial)
-3. Copiar `.env.example` a `.env` y completar las 4 variables
+3. Copiar `.env.example` a `.env` y completar las variables
 4. `npm start`
 
 La primera corrida insertara todo lo que encuentre (baseline) y notificara
 lo relevante. Las siguientes solo procesan procesos nuevos.
 
-## Despliegue en Railway (cron job)
+## Despliegue en Railway
 
-1. Subir este repo a GitHub y conectarlo a un nuevo servicio en Railway
+1. Subir este repo a GitHub y conectarlo a Railway
 2. Cargar las variables de entorno del `.env.example`
-3. En Settings del servicio, configurar **Cron Schedule**: `0 13 * * 1-5`
-   (7:00 AM hora El Salvador, lunes a viernes — UTC-6)
-4. El script corre, termina y sale (exit 0). Railway lo despierta en cada cron.
+3. Servicio web: usar `npm start`
+4. Cron/job: usar `npm run cron`
+5. En Settings del cron/job, configurar **Cron Schedule**: `0 13-23 * * 1-5`
+   (cada hora de 7:00 AM a 5:00 PM hora El Salvador, lunes a viernes, UTC-6)
+
+El job corre una vez, termina y sale (exit 0). Railway lo despierta en cada hora configurada.
 
 ## Ajustar palabras clave
 
@@ -49,7 +52,7 @@ y afinar tags y prompt del clasificador segun resultados reales.
 
 ## Costos estimados
 
-- Railway: dentro del plan actual (el cron corre ~2 min/dia)
+- Railway: dentro del plan actual (el cron corre varias veces al dia, pero solo unos minutos por corrida)
 - Claude API: solo clasifica procesos NUEVOS (~300 tokens c/u).
   Con 10-30 procesos nuevos/dia: centavos al mes.
 
