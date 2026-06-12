@@ -12,10 +12,10 @@ const TAGS = [
   'calderas',
   'caldera',
   'vapor',
-  'generador de vapor'
+  'generador de vapor',
   'quemador',
   'quemadores',
-  'mantenimiento caldera'
+  'mantenimiento caldera',
   'casa de maquinas',
   // Division lavanderia (Tecnitramo)
   'lavanderia',
@@ -25,7 +25,7 @@ const TAGS = [
   // Division quimicos / plagas
   'fumigacion',
   'control de plagas',
-  'equipos de fumicacion'
+  'equipos de fumicacion',
   'quimicos',
   'tratamiento de agua',
   'control de vectores',

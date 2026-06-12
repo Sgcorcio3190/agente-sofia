@@ -14,7 +14,7 @@ const supabase = createClient(
   process.env.SUPABASE_SERVICE_KEY
 );
 
-async function main() {
+async function runOnce() {
   console.log('=== Monitor COMPRASAL — Sigmart Group ===');
   console.log('Inicio:', new Date().toISOString());
 
@@ -99,9 +99,13 @@ async function main() {
   console.log('Fin:', new Date().toISOString());
 }
 
-main()
-  .then(() => process.exit(0))
-  .catch((err) => {
-    console.error('FALLO CRITICO:', err.message);
-    process.exit(1);
-  });
+if (require.main === module) {
+  runOnce()
+    .then(() => process.exit(0))
+    .catch((err) => {
+      console.error('FALLO CRITICO:', err.message);
+      process.exit(1);
+    });
+}
+
+module.exports = { runOnce };

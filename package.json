@@ -4,7 +4,8 @@
   "description": "Agente de monitoreo de licitaciones COMPRASAL para Sigmart Group",
   "main": "src/index.js",
   "scripts": {
-    "start": "node src/index.js"
+    "start": "node src/server.js",
+    "once": "node src/index.js"
   },
   "engines": {
     "node": ">=18"
