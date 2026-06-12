@@ -26,13 +26,15 @@ const TAGS = [
   'lavadora industrial',
   'secadora industrial',
   'planchador industrial',
+  'lavadora',
+  'secadora',
+  'mantenimiento de lavadora',
+  'mantenimiento de secadora',
   // Division quimicos / plagas
   'fumigacion',
   'control de plagas',
   'manejo integrado de plagas',
   'equipos de fumigacion',
-  'tratamiento de agua',
-  'tratamiento de agua de calderas',
   'control de vectores',
 ];
 
