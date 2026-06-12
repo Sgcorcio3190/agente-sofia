@@ -28,21 +28,21 @@ COMPRASAL API publico
 1. `npm install`
 2. Ejecutar `schema.sql` en el SQL Editor de Supabase (proyecto industrial)
 3. Copiar `.env.example` a `.env` y completar las variables
-4. `npm start`
+4. `npm run once`
 
 La primera corrida insertara todo lo que encuentre (baseline) y notificara
 lo relevante. Las siguientes solo procesan procesos nuevos.
 
-## Despliegue en Railway
+## Despliegue en Railway como cron
 
 1. Subir este repo a GitHub y conectarlo a Railway
 2. Cargar las variables de entorno del `.env.example`
-3. Servicio web: usar `npm start`
-4. Cron/job: usar `npm run cron`
-5. En Settings del cron/job, configurar **Cron Schedule**: `0 13-23 * * 1-5`
+3. El comando de arranque queda configurado como `npm run cron` en `railway.json`
+4. En Settings del cron/job, configurar **Cron Schedule**: `0 13-23 * * 1-5`
    (cada hora de 7:00 AM a 5:00 PM hora El Salvador, lunes a viernes, UTC-6)
 
 El job corre una vez, termina y sale (exit 0). Railway lo despierta en cada hora configurada.
+Es normal que no exista una URL `/health` cuando el servicio se usa solo como cron.
 
 ## Ajustar palabras clave
 
