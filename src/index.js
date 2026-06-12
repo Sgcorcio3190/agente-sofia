@@ -5,6 +5,7 @@
 
 require('dotenv').config();
 const { createClient } = require('@supabase/supabase-js');
+const WebSocket = require('ws');
 const { fetchAllProcesos, normalizar } = require('./comprasal');
 const { clasificar } = require('./classifier');
 const { notificarLicitacion, notificarResumen } = require('./notifier');
@@ -20,7 +21,12 @@ function getSupabaseClient() {
 
   return createClient(
     process.env.SUPABASE_URL,
-    process.env.SUPABASE_SERVICE_KEY
+    process.env.SUPABASE_SERVICE_KEY,
+    {
+      realtime: {
+        transport: WebSocket,
+      },
+    }
   );
 }
 
