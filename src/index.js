@@ -111,3 +111,11 @@ async function runOnce() {
 }
 
 module.exports = { runOnce };
+
+if (require.main === module) {
+  if (process.env.PORT) {
+    require('./server');
+  } else {
+    console.log('Agente COMPRASAL cargado. Usa "npm run once" para ejecutarlo.');
+  }
+}
