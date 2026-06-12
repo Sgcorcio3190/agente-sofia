@@ -3,7 +3,6 @@
 
 require('dotenv').config();
 const http = require('http');
-const { runOnce } = require('./index');
 
 const PORT = process.env.PORT || 3000;
 let running = false;
@@ -52,6 +51,7 @@ const server = http.createServer(async (req, res) => {
     lastError = null;
 
     try {
+      const { runOnce } = require('./index');
       await runOnce();
       lastRun = new Date().toISOString();
       return sendJson(res, 200, { ok: true, lastRun });
