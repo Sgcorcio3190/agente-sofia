@@ -36,6 +36,9 @@ const TAGS = [
   'manejo integrado de plagas',
   'equipos de fumigacion',
   'control de vectores',
+  'insecticida',
+  'rodenticida',
+  'mosquitero',
 ];
 
 const HEADERS = {
