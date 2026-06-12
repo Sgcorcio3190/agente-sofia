@@ -110,13 +110,4 @@ async function runOnce() {
   console.log('Fin:', new Date().toISOString());
 }
 
-if (require.main === module) {
-  runOnce()
-    .then(() => process.exit(0))
-    .catch((err) => {
-      console.error('FALLO CRITICO:', err.message);
-      process.exit(1);
-    });
-}
-
 module.exports = { runOnce };

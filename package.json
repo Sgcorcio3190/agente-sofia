@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "start": "node src/server.js",
-    "once": "node src/index.js"
+    "once": "node src/run-once.js"
   },
   "engines": {
     "node": ">=20"

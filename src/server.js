@@ -9,6 +9,22 @@ let running = false;
 let lastRun = null;
 let lastError = null;
 
+async function runAgentInBackground() {
+  running = true;
+  lastError = null;
+
+  try {
+    const { runOnce } = require('./index');
+    await runOnce();
+    lastRun = new Date().toISOString();
+  } catch (err) {
+    lastError = err.message;
+    console.error('FALLO CRITICO:', err.message);
+  } finally {
+    running = false;
+  }
+}
+
 function sendJson(res, status, body) {
   res.writeHead(status, { 'Content-Type': 'application/json; charset=utf-8' });
   res.end(JSON.stringify(body, null, 2));
@@ -47,20 +63,8 @@ const server = http.createServer(async (req, res) => {
       return sendJson(res, 409, { ok: false, error: 'Agent is already running' });
     }
 
-    running = true;
-    lastError = null;
-
-    try {
-      const { runOnce } = require('./index');
-      await runOnce();
-      lastRun = new Date().toISOString();
-      return sendJson(res, 200, { ok: true, lastRun });
-    } catch (err) {
-      lastError = err.message;
-      return sendJson(res, 500, { ok: false, error: err.message });
-    } finally {
-      running = false;
-    }
+    runAgentInBackground();
+    return sendJson(res, 202, { ok: true, running: true });
   }
 
   return sendJson(res, 404, { ok: false, error: 'Not found' });
