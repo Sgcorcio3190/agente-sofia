@@ -5,7 +5,13 @@
 
 const Anthropic = require('@anthropic-ai/sdk');
 
-const client = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+function getAnthropicClient() {
+  if (!process.env.ANTHROPIC_API_KEY) {
+    throw new Error('Falta variable de entorno: ANTHROPIC_API_KEY');
+  }
+
+  return new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
+}
 
 const SYSTEM_PROMPT = `Eres el analista de licitaciones publicas de Sigmart Group, empresa industrial B2B de El Salvador con mas de 30 anos en Centroamerica.
 
@@ -26,6 +32,7 @@ Responde UNICAMENTE con JSON valido, sin markdown ni texto adicional:
 {"relevante": true|false, "division": "CALDERAS"|"LAVANDERIA"|"QUIMICOS_PLAGAS"|null, "prioridad": "alta"|"media"|"baja"|null, "razon": "una frase corta"}`;
 
 async function clasificar(proceso) {
+  const client = getAnthropicClient();
   const resumen = {
     nombre: proceso.nombre_proceso,
     institucion: proceso.institucion,

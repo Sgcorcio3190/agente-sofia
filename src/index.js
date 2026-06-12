@@ -9,14 +9,25 @@ const { fetchAllProcesos, normalizar } = require('./comprasal');
 const { clasificar } = require('./classifier');
 const { notificarLicitacion, notificarResumen } = require('./notifier');
 
-const supabase = createClient(
-  process.env.SUPABASE_URL,
-  process.env.SUPABASE_SERVICE_KEY
-);
+function getSupabaseClient() {
+  const missing = ['SUPABASE_URL', 'SUPABASE_SERVICE_KEY'].filter(
+    (key) => !process.env[key]
+  );
+
+  if (missing.length > 0) {
+    throw new Error(`Faltan variables de entorno: ${missing.join(', ')}`);
+  }
+
+  return createClient(
+    process.env.SUPABASE_URL,
+    process.env.SUPABASE_SERVICE_KEY
+  );
+}
 
 async function runOnce() {
   console.log('=== Monitor COMPRASAL — Sigmart Group ===');
   console.log('Inicio:', new Date().toISOString());
+  const supabase = getSupabaseClient();
 
   // 1. Consultar COMPRASAL por todos los tags
   const { procesos, errores } = await fetchAllProcesos();
