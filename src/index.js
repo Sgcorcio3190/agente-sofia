@@ -113,6 +113,16 @@ async function runOnce() {
     });
   }
 
+  // 6. Heartbeat — le avisa al panel que el cron corrio
+    await supabase
+     .from('agent_heartbeat')
+     .insert({
+       agente: 'sofia',
+       ran_at: new Date().toISOString(),
+       metadata: { procesos_revisados: procesos.length, nuevos: nuevos.length, relevantes },
+    });
+
+
   console.log('Fin:', new Date().toISOString());
 }
 
