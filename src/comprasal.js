@@ -22,7 +22,6 @@ const TAGS = [
   'casa de maquinas',
   // Otras - Oportunidades de Importancia para Sigmart Group
   'marchamos',
-  'cepa',
   // Division lavanderia (Tecnitramo)
   'lavanderia industrial',
   'equipo de lavanderia',
