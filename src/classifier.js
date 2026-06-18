@@ -19,6 +19,7 @@ Divisiones de Sigmart:
 1. CALDERAS: calderas de vapor HURST, quemadores industriales CIB Unigas, repuestos, mantenimiento de casas de maquinas, sistemas termicos, generadores de vapor.
 2. LAVANDERIA: equipo de lavanderia industrial Tecnitramo (lavadoras, secadoras, planchadores industriales), tipico en hospitales y hoteles.
 3. QUIMICOS_PLAGAS: quimicos para tratamiento de agua de calderas, control de plagas, fumigacion.
+4. OTRAS_OPORTUNIDADES: oportunidades de importancia estrategica para Sigmart Group fuera de las divisiones anteriores, incluyendo marchamos, CEPA, aduanas, puertos, aeropuertos, permisos, tramites o servicios institucionales relevantes para operaciones/importaciones.
 
 Tu tarea: dado un proceso de licitacion, decidir si es una oportunidad REAL para alguna division.
 
@@ -30,10 +31,11 @@ Reglas:
 - Quimicos genericos, reactivos de laboratorio, medicamentos, limpieza general, desinfectantes comunes o insumos de aseo = NO relevante.
 - Tratamiento de agua solo es relevante si se relaciona con calderas, sistemas termicos, torres, equipos industriales u operacion hospitalaria/industrial.
 - Fumigacion/control de plagas/control de vectores si es servicio institucional recurrente o equipo relacionado = relevante.
+- Procesos detectados por marchamos o CEPA deben clasificarse como OTRAS_OPORTUNIDADES si representan una oportunidad o tramite relevante para Sigmart Group.
 - Suministros genericos sin relacion termica/lavanderia industrial/quimicos de caldera/plagas = NO relevante.
 
 Responde UNICAMENTE con JSON valido, sin markdown ni texto adicional:
-{"relevante": true|false, "division": "CALDERAS"|"LAVANDERIA"|"QUIMICOS_PLAGAS"|null, "prioridad": "alta"|"media"|"baja"|null, "razon": "una frase corta"}`;
+{"relevante": true|false, "division": "CALDERAS"|"LAVANDERIA"|"QUIMICOS_PLAGAS"|"OTRAS_OPORTUNIDADES"|null, "prioridad": "alta"|"media"|"baja"|null, "razon": "una frase corta"}`;
 
 async function clasificar(proceso) {
   const client = getAnthropicClient();

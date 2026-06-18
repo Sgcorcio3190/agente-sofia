@@ -9,6 +9,7 @@ const DIVISION_LABEL = {
   CALDERAS: 'Calderas / Vapor',
   LAVANDERIA: 'Lavanderia industrial',
   QUIMICOS_PLAGAS: 'Quimicos / Plagas',
+  OTRAS_OPORTUNIDADES: 'Otras - Oportunidades de Importancia para Sigmart Group',
 };
 
 function formatFecha(iso) {

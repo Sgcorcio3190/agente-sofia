@@ -13,7 +13,7 @@ create table if not exists licitaciones_publicas (
   fecha_limite_ofertas timestamptz,            -- el dato critico para reaccionar
   tags_detectados text[],                      -- que palabra clave lo encontro
   relevante boolean not null default false,    -- veredicto de Claude
-  division text,                               -- CALDERAS | LAVANDERIA | QUIMICOS_PLAGAS
+  division text,                               -- CALDERAS | LAVANDERIA | QUIMICOS_PLAGAS | OTRAS_OPORTUNIDADES
   prioridad text,                              -- alta | media | baja
   razon_clasificacion text,
   raw jsonb,                                   -- respuesta completa del API por si acaso
