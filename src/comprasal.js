@@ -20,6 +20,12 @@ const TAGS = [
   'mantenimiento de calderas',
   'reparacion de calderas',
   'casa de maquinas',
+  // Mantenimiento de maquinaria y equipo (procesos generales de mantenimiento industrial)
+  'mantenimiento de maquinaria',
+  'mantenimiento preventivo de maquinaria',
+  'mantenimiento correctivo de maquinaria',
+  'maquinaria y equipo',
+  'mantenimiento preventivo y correctivo',
   // Otras - Oportunidades de Importancia para Sigmart Group
   'marchamos',
   // Division lavanderia (Tecnitramo)

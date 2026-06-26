@@ -27,6 +27,7 @@ Reglas:
 - Se estricto. "Vapor" en un nombre de calle o "caldera" como apellido NO es relevante.
 - Hospitales con calderas, lavanderia o quimicos = prioridad alta (cliente objetivo principal).
 - Mantenimiento o repuestos de equipos que Sigmart representa = relevante.
+- Procesos de "mantenimiento preventivo y correctivo de maquinaria y equipo" o similares: son relevantes SOLO si la maquinaria es del tipo que Sigmart atiende (calderas, equipos de vapor, lavanderia industrial, equipos termicos) o si la institucion es un hospital, hotel u operacion industrial. Clasificar bajo la division correspondiente. Si la maquinaria es de otro tipo (vehiculos, equipos medicos, electrodomesticos, sistemas electricos generales) = NO relevante.
 - Servicios de lavado de ropa, alquiler de ropa hospitalaria o lavanderia domestica = NO relevante salvo que pidan equipo industrial.
 - Quimicos genericos, reactivos de laboratorio, medicamentos, limpieza general, desinfectantes comunes o insumos de aseo = NO relevante.
 - Tratamiento de agua solo es relevante si se relaciona con calderas, sistemas termicos, torres, equipos industriales u operacion hospitalaria/industrial.
