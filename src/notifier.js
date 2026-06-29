@@ -65,7 +65,7 @@ async function notificarResumen(stats) {
     `Procesos revisados: ${stats.revisados}`,
     `Nuevos detectados: ${stats.nuevos}`,
     `Relevantes notificados: ${stats.relevantes}`,
-    stats.errores > 0 ? `⚠️ Errores en ${stats.errores} consultas` : null,
+    stats.errores > 0 ? `ℹ️ ${stats.errores} palabras clave sin resultados en COMPRASAL (normal si no hay procesos activos)` : null,
   ]
     .filter(Boolean)
     .join('\n');
